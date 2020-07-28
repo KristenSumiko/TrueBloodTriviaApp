@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'TrueBlood';
+    src: url('./TRUEblood.ttf') format('truetype');
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: rgb(8, 8, 26);
+    background-color: rgb(8, 8, 26);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.True, .Blood {
+    font-family: "TrueBlood", "Arial Black", Gadget, sans-serif;
+}
+
+.True {
+    color: red;
+}
+
+.startPgImg {
+    background-image: url(./AppImages/StartPageImage.jpg);
+}
+
+.questionsImg {
+    background-image: url(./AppImages/QuestionsBackground.jpg);
+}
+
+.resultsImg {
+    background-image: url(./AppImages/ResultsPage.jpg);   
+}
+
+header {
+    color: white;
+    font-size: 55px;
+    padding-top: 55px;
+    height: 80px;
+    margin-bottom: 140px;
+}
+
+.questionNumAndScore {
+    color: white;
+    padding-top: 20px;
+    font-size: 15px;
+    margin-bottom: 13px;                 
+}
+
+.right, .wrong, .correction {
+    color: rgb(224, 16, 16);
+}
+.startPage, .quizPage {
+    width: 80%;
+    padding: 40px;
+    margin: 0 auto;
+    background: rgba(229, 222, 247, 0.75);
+    border-radius: 10px;
+}
+
+header, main {
+    text-align: center;
+}
+
+main {
+    margin: 45px 0;
+}
+
+legend {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.jsOptions {
+    margin: 0 auto;
+    width: 300px;
+    text-align: left;
+    font-size: 15px;
+}
+
+button {
+    margin-top:10px;
+    height: auto;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    color:rgba(229, 222, 247);
+    background: rgb(8, 8, 26);
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius:5px;
+    padding: 8px 18px;
+}
+
+.start {
+    margin-bottom: 8px; 
+}
+
+.score, .feedback {
+    color: rgb(224, 16, 16);
+} 
+
+.score {
+    font-size: 30px;
+}
+
+.feedback {
+font-size: 20px;
+}

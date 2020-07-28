@@ -1,17 +1,17 @@
 function renderStartPage() {
     const startPageHtml = $(`<div id="startpage">
     <div><button type="button" class="start">START</button></div>
-    <div><p>Are you a <span class="True">True</span> <span class="Blood">Fan</span>?</p></div>
+    <div><p><span class="Blood">ARE YOU A TRUE FAN</span>?</p></div>
     </div>`);
-    //this function should run as the page loads to display Start screen
     $('.startPage').html(startPageHtml);
+    $('.quizPage').hide();
   }
   
   function startQuiz() {
-    //this function should start the quiz when you select the START button
     $('.startPage').on('click', '.start', function(event) {
-      //this function should hide start page
       $('.startPage').hide();
+      $('.quizPage').show();
+      $('body').removeClass('startPgImg').addClass('questionsImg');
       renderQuestion();
       generateOptionsHtml();
       renderQuestionNumberAndScore();
@@ -23,10 +23,9 @@ function renderStartPage() {
     let questionHtml = $(`<form class='quiz'>
       <legend>${question.question}</legend>
       <div class='jsOptions'>${generateOptionsHtml()}</div>
-      <button class='submit' type='submit'>submit</button>
-      <button class='continue' type='button'>continue</button>
+      <button class='submit' type='submit'>SUBMIT</button>
+      <button class='continue' type='button'>CONTINUE</button>
       </form>`);
-    //this function should populate the current question
     $('.quizPage').html(questionHtml);
     $('.continue').hide();
   }
@@ -34,7 +33,6 @@ function renderStartPage() {
     let question = STORE.questions[STORE.currentQuestion]
     let optionsHtml = ''
     for(let i=0; i<question.options.length; i++) {
-      //this function should populate the answer options for the current question
       optionsHtml += `<div><input type='radio' name='option' value='${question.options[i]}'>
       <label for="${question.options[i]}">${question.options[i]}</label></div>`;
     }
@@ -87,13 +85,15 @@ function renderStartPage() {
   }
   
   function finishQuiz() {
+    $('body').removeClass('questionsImg').addClass('resultsImg');
+    $('.questionNumAndScore').hide();
     $('.quizPage').html(renderFeedbackPage());
   }
   
   function renderFeedbackPage() {
     return `<div class='score'>${STORE.correctAnswerCount * 10} %</div>
     <div class='feedback'>${renderAppropriateFeedback()}</div>
-    <button class='restart' type='button'>restart</button>`;
+    <button class='restart' type='button'>RESTART</button>`;
   }
   
   function renderAppropriateFeedback() {
@@ -107,7 +107,7 @@ function renderStartPage() {
     } else if (STORE.correctAnswerCount <= 9) {
       feedbackHtml += `<p>Good job, almost got 'em all!</p>`;
     } else {
-      feedbackHtml += `<p>Amazing! You are a <span class="True">True</span> <span class="Blood">Fan</span>!</p>`;
+      feedbackHtml += `<p>Amazing! You are a <span class="True">True</span> <span class="Blood">fan</span>!</p>`;
     }
     return feedbackHtml;
   }
@@ -116,6 +116,7 @@ function renderStartPage() {
     $('.quizPage').on('click', '.restart', function (event) {
       STORE.currentQuestion = 0;
       STORE.correctAnswerCount = 0;
+      $('body').removeClass('resultsImg').addClass('questionsImg');
       renderQuestion();
       generateOptionsHtml();
       renderQuestionNumberAndScore();
