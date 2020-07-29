@@ -107,7 +107,7 @@ function renderStartPage() {
     } else if (STORE.correctAnswerCount <= 9) {
       feedbackHtml += `<p>Good job, almost got 'em all!</p>`;
     } else {
-      feedbackHtml += `<p>Amazing! You are a <span class="True">True</span> <span class="Blood">fan</span>!</p>`;
+      feedbackHtml += `<p>Amazing! You are a TRUE FAN!</p>`;
     }
     return feedbackHtml;
   }
@@ -117,6 +117,7 @@ function renderStartPage() {
       STORE.currentQuestion = 0;
       STORE.correctAnswerCount = 0;
       $('body').removeClass('resultsImg').addClass('questionsImg');
+      $('.questionNumAndScore').show();
       renderQuestion();
       generateOptionsHtml();
       renderQuestionNumberAndScore();
