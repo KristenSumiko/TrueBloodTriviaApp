@@ -55,7 +55,7 @@ header {
 .right, .wrong, .correction {
     color: rgb(224, 16, 16);
 }
-.startPage, .quizPage {
+.startPage, .quiz {
     width: 80%;
     padding: 40px;
     margin: 0 auto;
@@ -88,7 +88,7 @@ button {
     font-size: 13px;
     font-weight: 500;
     text-align: center;
-    color:rgba(229, 222, 247);
+    color:rgb(229, 222, 247);
     background: rgb(8, 8, 26);
     border: 0;
     cursor: pointer;
@@ -103,6 +103,7 @@ button {
 
 .score, .feedback {
     color: rgb(224, 16, 16);
+    text-shadow: 3px 3px 3px black;
 } 
 
 .score {
@@ -111,4 +112,11 @@ button {
 
 .feedback {
 font-size: 20px;
+}
+
+@media screen and (max-width: 375px) {
+ 
+.below {
+    display: block;
+}
 }
